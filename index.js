@@ -1,5 +1,24 @@
 const main = document.getElementsByTagName('main')[0]
 
+//
+// PRELOAD PAGES
+//
+
+const load = async (uri) => {
+    let result
+    await fetch(uri)
+        .then(response => response.text())
+        .then(text => result = text)
+
+    return result
+}
+
+const projectsHTML = load('projects/index.html')
+
+const educationHTML = load('education/index.html')
+
+const homeHTML = load('home/index.html')
+
 
 //
 // PROJECTS
@@ -29,7 +48,7 @@ home.onclick = () => focus(home)
 // LOGIC
 //
 
-const focus = (elem) => {
+const focus = async (elem) => {
     // get current and remove the current class
     const current = document.getElementsByClassName('_nav-current')[0]
     current.classList.remove('_nav-current')
@@ -50,14 +69,21 @@ const focus = (elem) => {
     document.head.appendChild(newLink)
 
     // get the new html
-    fetch(elem.id + '/index.html')
-        .then(response => response.text())
-        .then(text => main.innerHTML = text);
+    switch (elem.id) {
+        case 'projects':
+            main.innerHTML = await projectsHTML
+            break;
+        case 'education':
+            main.innerHTML = await educationHTML
+            break;
+        case 'home':
+            main.innerHTML = await homeHTML
+            break;
+    }
 }
-
 
 //
 // ENTRY
 //
 
-focus(projects)
+focus(projects).then(_ => _)
