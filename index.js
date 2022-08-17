@@ -36,6 +36,9 @@ const focus = (elem) => {
     // add current class to the new element
     elem.classList.add('_nav-current')
 
+    // clear main
+    main.innerHTML = ''
+
     // get the current stylesheet and remove from the head
     const link = document.getElementById('main')
     document.head.removeChild(link)
