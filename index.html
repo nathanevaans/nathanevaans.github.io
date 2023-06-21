@@ -1,46 +1,48 @@
 <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0; /* Reset default body margin */
+        padding: 20px; /* Add padding for content */
+    }
 
-        #container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
+    .card {
+        width: calc(50% - 40px); /* Adjusted width for mobile devices */
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: box-shadow 0.3s;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-description {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 20px;
+    }
+
+    @media only screen and (min-width: 600px) {
         .card {
-            width: 90%; /* Adjusted width for mobile devices */
-            margin: 10px; /* Adjusted margin for mobile devices */
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: box-shadow 0.3s;
+            width: 300px;
+            margin: 20px;
         }
-
-        .card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .card-description {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 20px;
-        }
-
-        @media only screen and (min-width: 600px) {
-            .card {
-                width: 300px;
-                margin: 20px;
-            }
-        }
-    </style>
+    }
+</style>
