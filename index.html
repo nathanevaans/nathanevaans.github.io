@@ -52,6 +52,23 @@
             font-size: 12px;
             color: #999;
             align-self: flex-end;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .card[data-year="2024"] .card-date {
+            background-color: #E7F6FF; /* Light Blue */
+            color: #000; /* Black text color */
+        }
+
+        .card[data-year="2023"] .card-date {
+            background-color: #FBE8FF; /* Light Purple */
+            color: #000; /* Black text color */
+        }
+
+        .card[data-year="2022"] .card-date {
+            background-color: #FFEBD9; /* Light Orange */
+            color: #000; /* Black text color */
         }
 
         @media only screen and (min-width: 600px) {
@@ -114,7 +131,7 @@
         },
         {
             title: "Minesweeper",
-            description: "Do I really need to say anything here",
+            description: "Do really need to say anyhting here",
             link: "https://nathanevaans.github.io/Minesweeper/",
             date: 2022
         },
@@ -147,6 +164,7 @@
         date.classList.add("card-date")
         date.textContent = info.date
 
+        card.dataset.year = info.date;
         card.append(title, description, date)
 
         const container = document.getElementById("container")
