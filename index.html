@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Nathan Evans</title>
-    <style>
+<style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -15,8 +11,8 @@
         }
 
         .card {
-            width: 300px;
-            margin: 20px;
+            width: 90%; /* Adjusted width for mobile devices */
+            margin: 10px; /* Adjusted margin for mobile devices */
             padding: 20px;
             background-color: white;
             border-radius: 8px;
@@ -40,77 +36,11 @@
             color: #777;
             margin-bottom: 20px;
         }
-    </style>
-</head>
-<body>
-<div id="container">
-</div>
 
-<script>
-    [
-        {
-            title: "Connect 4",
-            description: "Monte Carlo Tree Search AI",
-            link: "https://nathanevaans.github.io/connect4/"
-        },
-        {
-            title: "Double Pendulum Simulation",
-            description: "Let the chaos unfold",
-            link: "https://nathanevaans.github.io/DoublePendulum/"
-        },
-        {
-            title: "LaTeX Equation Notebook",
-            description: "A safe space to store your equations",
-            link: "https://nathanevaans.github.io/latexrenderer/"
-        },
-        {
-            title: "Ray Tracing Engine",
-            description: "Converts a 2D maze to 3D where you can walk around it",
-            link: "https://nathanevaans.github.io/rayTracer/"
-        },
-        {
-            title: "Maze Generator",
-            description: "Visualisation of how mazes are made with recursive backtracking",
-            link: "https://nathanevaans.github.io/mazeGenViz/"
-        },
-        {
-            title: "Trippples",
-            description: "Play against the minimax AI with alpha beta pruning for this 70s board game",
-            link: "https://nathanevaans.github.io/Trippples/"
-        },
-        {
-            title: "Minesweeper",
-            description: "Do really need to say anyhting here",
-            link: "https://nathanevaans.github.io/Minesweeper/"
-        },
-        {
-            title: "Lagrange Interpolation",
-            description: "Click to add points and watch it fit a polynomial through the points",
-            link: "https://nathanevaans.github.io/lagrange-interpolation/"
-        },
-        {
-            title: "Quad-Tree Visualisation",
-            description: "Click and drag to add points, right click and drag to query the tree",
-            link: "https://nathanevaans.github.io/quadtree/"
+        @media only screen and (min-width: 600px) {
+            .card {
+                width: 300px;
+                margin: 20px;
+            }
         }
-    ].forEach(info => {
-        const card = document.createElement("div")
-        card.classList.add("card")
-        card.onclick = () => window.location.href = info.link
-
-        const title = document.createElement("div")
-        title.classList.add("card-title")
-        title.textContent = info.title
-
-        const description = document.createElement("div")
-        description.classList.add("card-description")
-        description.textContent = info.description
-
-        card.append(title, description)
-
-        const container = document.getElementById("container")
-        container.append(card)
-    })
-</script>
-</body>
-</html>
+    </style>
