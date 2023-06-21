@@ -27,6 +27,9 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: box-shadow 0.3s;
+
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -43,6 +46,12 @@
             font-size: 14px;
             color: #777;
             margin-bottom: 20px;
+        }
+
+        .card-date {
+            font-size: 12px;
+            color: #999;
+            align-self: flex-end;
         }
 
         @media only screen and (min-width: 600px) {
@@ -62,6 +71,7 @@
 </head>
 <body>
 <div id="container">
+
 </div>
 
 <script>
@@ -69,47 +79,56 @@
         {
             title: "Connect 4",
             description: "Monte Carlo Tree Search AI",
-            link: "https://nathanevaans.github.io/connect4/"
+            link: "https://nathanevaans.github.io/connect4/",
+            date: 2023
         },
         {
             title: "Double Pendulum Simulation",
             description: "Let the chaos unfold",
-            link: "https://nathanevaans.github.io/DoublePendulum/"
+            link: "https://nathanevaans.github.io/DoublePendulum/",
+            date: 2023
         },
         {
             title: "LaTeX Equation Notebook",
             description: "A safe space to store your equations",
-            link: "https://nathanevaans.github.io/latexrenderer/"
+            link: "https://nathanevaans.github.io/latexrenderer/",
+            date: 2023
         },
         {
             title: "Ray Tracing Engine",
             description: "Converts a 2D maze to 3D where you can walk around it",
-            link: "https://nathanevaans.github.io/rayTracer/"
+            link: "https://nathanevaans.github.io/rayTracer/",
+            date: 2022
         },
         {
             title: "Maze Generator",
             description: "Visualisation of how mazes are made with recursive backtracking",
-            link: "https://nathanevaans.github.io/mazeGenViz/"
+            link: "https://nathanevaans.github.io/mazeGenViz/",
+            date: 2022
         },
         {
             title: "Trippples",
             description: "Play against the minimax AI with alpha beta pruning for this 70s board game",
-            link: "https://nathanevaans.github.io/Trippples/"
+            link: "https://nathanevaans.github.io/Trippples/",
+            date: 2022
         },
         {
             title: "Minesweeper",
             description: "Do really need to say anyhting here",
-            link: "https://nathanevaans.github.io/Minesweeper/"
+            link: "https://nathanevaans.github.io/Minesweeper/",
+            date: 2022
         },
         {
             title: "Lagrange Interpolation",
             description: "Click to add points and watch it fit a polynomial through the points",
-            link: "https://nathanevaans.github.io/lagrange-interpolation/"
+            link: "https://nathanevaans.github.io/lagrange-interpolation/",
+            date: 2022
         },
         {
             title: "Quad-Tree Visualisation",
             description: "Click and drag to add points, right click and drag to query the tree",
-            link: "https://nathanevaans.github.io/quadtree/"
+            link: "https://nathanevaans.github.io/quadtree/",
+            date: 2022
         }
     ].forEach(info => {
         const card = document.createElement("div")
@@ -124,7 +143,11 @@
         description.classList.add("card-description")
         description.textContent = info.description
 
-        card.append(title, description)
+        const date = document.createElement("div")
+        date.classList.add("card-date")
+        date.textContent = info.date
+
+        card.append(title, description, date)
 
         const container = document.getElementById("container")
         container.append(card)
