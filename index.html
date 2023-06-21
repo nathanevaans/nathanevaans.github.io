@@ -19,6 +19,8 @@
         }
 
         .card {
+            position: relative;
+
             width: calc(50% - 20px);
             margin: 10px;
             padding: 20px;
@@ -48,12 +50,40 @@
             margin-bottom: 20px;
         }
 
+        .card-content {
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: flex-end;
+        }
+
+        .card-tag {
+            display: inline-flex;
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            color: #666;
+            border-radius: 20px;
+            font-size: 12px;
+            align-items: center;
+        }
+
         .card-date {
             font-size: 12px;
-            color: #999;
-            align-self: flex-end;
             padding: 5px 10px;
             border-radius: 4px;
+            align-self: flex-end;
+            margin-left: auto;
         }
 
         .card[data-year="2023"] .card-date {
@@ -88,7 +118,6 @@
 </head>
 <body>
 <div id="container">
-
 </div>
 
 <script>
@@ -97,66 +126,81 @@
             title: "Connect 4",
             description: "Monte Carlo Tree Search AI",
             link: "https://nathanevaans.github.io/connect4/",
+            tags: ["Game", "AI"],
             date: 2023
         },
         {
             title: "Double Pendulum Simulation",
             description: "Let the chaos unfold",
             link: "https://nathanevaans.github.io/DoublePendulum/",
+            tags: ["Maths", "Visualisation"],
             date: 2023
         },
         {
             title: "LaTeX Equation Notebook",
             description: "A safe space to store your equations",
             link: "https://nathanevaans.github.io/latexrenderer/",
+            tags: ["Maths", "Utility"],
             date: 2023
         },
         {
             title: "Ray Tracing Engine",
             description: "Converts a 2D maze to 3D where you can walk around it",
             link: "https://nathanevaans.github.io/rayTracer/",
+            tags: ["Visualisation"],
             date: 2022
         },
         {
             title: "Maze Generator",
             description: "Visualisation of how mazes are made with recursive backtracking",
             link: "https://nathanevaans.github.io/mazeGenViz/",
+            tags: ["Algorithms", "Visualisation", "Algorithms", "Visualisation"],
             date: 2022
         },
         {
             title: "Trippples",
             description: "Play against the minimax AI with alpha beta pruning for this 70s board game",
             link: "https://nathanevaans.github.io/Trippples/",
+            tags: ["Game", "AI"],
             date: 2022
         },
         {
             title: "Minesweeper",
             description: "Do really need to say anyhting here",
             link: "https://nathanevaans.github.io/Minesweeper/",
+            tags: ["Game"],
             date: 2022
         },
         {
             title: "Lagrange Interpolation",
             description: "Click to add points and watch it fit a polynomial through the points",
             link: "https://nathanevaans.github.io/lagrange-interpolation/",
+            tags: ["Maths"],
             date: 2022
         },
         {
             title: "Quad-Tree Visualisation",
             description: "Click and drag to add points, right click and drag to query the tree",
             link: "https://nathanevaans.github.io/quadtree/",
+            tags: ["Data Structures"],
             date: 2022
         },
         {
             title: "Java Neural Network Library",
             description: "With convolutional layers",
             link: "https://github.com/nathanevaans/neural-network-lib/",
+            tags: ["Maths", "Algorithms"],
             date: 2021
         }
     ].forEach(info => {
+        const container = document.getElementById("container")
+
         const card = document.createElement("div")
         card.classList.add("card")
         card.onclick = () => window.location.href = info.link
+
+        const cardContainer = document.createElement("div")
+        cardContainer.classList.add("card-content")
 
         const title = document.createElement("div")
         title.classList.add("card-title")
@@ -166,14 +210,31 @@
         description.classList.add("card-description")
         description.textContent = info.description
 
+        cardContainer.append(title, description)
+
+        const cardFooter = document.createElement("div")
+        cardFooter.classList.add("card-footer")
+
+        const cardTags = document.createElement("div")
+        cardTags.classList.add("card-tags")
+
+        info.tags.forEach(tag => {
+            const tagDiv = document.createElement("div")
+            tagDiv.classList.add("card-tag")
+            tagDiv.textContent = tag
+
+            cardTags.append(tagDiv)
+        })
+
         const date = document.createElement("div")
         date.classList.add("card-date")
         date.textContent = info.date
 
-        card.dataset.year = info.date;
-        card.append(title, description, date)
+        cardFooter.append(cardTags, date)
 
-        const container = document.getElementById("container")
+        card.dataset.year = info.date;
+        card.append(cardContainer, cardFooter)
+
         container.append(card)
     })
 </script>
