@@ -38,6 +38,18 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .wip-marker {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ff9800;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 0 4px 0 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
         .card-title {
             font-size: 18px;
             font-weight: bold;
@@ -117,13 +129,13 @@
     </style>
 </head>
 <body>
-<div id="container">
-</div>
+<div id="container"></div>
 
 <script>
     [
         {
             title: "Connect 4",
+            wip: true,
             description: "Monte Carlo Tree Search AI",
             link: "https://nathanevaans.github.io/connect4/",
             tags: ["Game", "AI"],
@@ -131,6 +143,7 @@
         },
         {
             title: "Double Pendulum Simulation",
+            wip: false,
             description: "Let the chaos unfold",
             link: "https://nathanevaans.github.io/DoublePendulum/",
             tags: ["Maths", "Visualisation"],
@@ -138,6 +151,7 @@
         },
         {
             title: "LaTeX Equation Notebook",
+            wip: false,
             description: "A safe space to store your equations",
             link: "https://nathanevaans.github.io/latexrenderer/",
             tags: ["Maths", "Utility"],
@@ -145,6 +159,7 @@
         },
         {
             title: "Ray Tracing Engine",
+            wip: false,
             description: "Converts a 2D maze to 3D where you can walk around it",
             link: "https://nathanevaans.github.io/rayTracer/",
             tags: ["Visualisation"],
@@ -152,6 +167,7 @@
         },
         {
             title: "Maze Generator",
+            wip: false,
             description: "Visualisation of how mazes are made with recursive backtracking",
             link: "https://nathanevaans.github.io/mazeGenViz/",
             tags: ["Algorithms", "Visualisation"],
@@ -159,6 +175,7 @@
         },
         {
             title: "Trippples",
+            wip: false,
             description: "Play against the minimax AI with alpha beta pruning for this 70s board game",
             link: "https://nathanevaans.github.io/Trippples/",
             tags: ["Game", "AI"],
@@ -166,6 +183,7 @@
         },
         {
             title: "Minesweeper",
+            wip: false,
             description: "Do really need to say anyhting here",
             link: "https://nathanevaans.github.io/Minesweeper/",
             tags: ["Game"],
@@ -173,6 +191,7 @@
         },
         {
             title: "Lagrange Interpolation",
+            wip: false,
             description: "Click to add points and watch it fit a polynomial through the points",
             link: "https://nathanevaans.github.io/lagrange-interpolation/",
             tags: ["Maths"],
@@ -180,6 +199,7 @@
         },
         {
             title: "Quad-Tree Visualisation",
+            wip: false,
             description: "Click and drag to add points, right click and drag to query the tree",
             link: "https://nathanevaans.github.io/quadtree/",
             tags: ["Data Structures"],
@@ -187,6 +207,7 @@
         },
         {
             title: "Java Neural Network Library",
+            wip: false,
             description: "With convolutional layers",
             link: "https://github.com/nathanevaans/neural-network-lib/",
             tags: ["Maths", "Algorithms"],
@@ -198,6 +219,14 @@
         const card = document.createElement("div")
         card.classList.add("card")
         card.onclick = () => window.location.href = info.link
+
+        if (info.wip) {
+            const wipMarker = document.createElement("div")
+            wipMarker.classList.add("wip-marker")
+            wipMarker.textContent = "WIP"
+
+            card.append(wipMarker)
+        }
 
         const cardContainer = document.createElement("div")
         cardContainer.classList.add("card-content")
