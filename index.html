@@ -21,7 +21,6 @@
         .card {
             position: relative;
 
-            width: calc(50% - 20px);
             margin: 10px;
             padding: 20px;
             background-color: white;
@@ -44,7 +43,7 @@
             right: 0;
             background-color: #ff9800;
             color: #fff;
-            padding: 3px 8px;
+            padding: 5px 10px;
             border-radius: 0 4px 0 4px;
             font-size: 12px;
             font-weight: bold;
@@ -98,8 +97,8 @@
             margin-left: auto;
         }
 
-        .card[data-year="2023"] .card-date {
-            background-color: #E7F6FF; /* Light Blue */
+        .card[data-year="2021"] .card-date {
+            background-color: #E7FFD4; /* Light Green */
             color: #000; /* Black text color */
         }
 
@@ -108,19 +107,24 @@
             color: #000; /* Black text color */
         }
 
-        .card[data-year="2021"] .card-date {
+        .card[data-year="2023"] .card-date {
+            background-color: #E7F6FF; /* Light Blue */
+            color: #000; /* Black text color */
+        }
+
+        .card[data-year="2024"] .card-date {
             background-color: #FFEBD9; /* Light Orange */
             color: #000; /* Black text color */
         }
 
-        @media only screen and (min-width: 600px) {
+        @media only screen and (min-width: 780px) {
             .card {
                 width: 300px;
                 margin: 20px;
             }
         }
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 780px) {
             .card {
                 width: 100%;
                 margin: 10px;
