@@ -24,11 +24,14 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
             transition: box-shadow 0.3s;
             display: flex;
             flex-direction: column;
             margin: 10px 20px 10px 20px;
+        }
+
+        .card.clickable {
+            cursor: pointer;
         }
 
         .card:hover {
@@ -57,6 +60,29 @@
             font-size: 14px;
             color: #777;
             margin-bottom: 20px;
+        }
+
+        .card-description a {
+            color: #0073e6; /* default blue */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .card-description a:hover {
+            color: #005bb5; /* darker blue on hover */
+            border-bottom-color: currentColor; /* underline matches text color */
+        }
+
+        .card-description a:visited {
+            color: #663399; /* purple for visited */
+            border-bottom-color: currentColor; /* underline matches text color */
+        }
+
+        .card-description a:visited:hover {
+            color: #522d73; /* darker purple when visited+hover */
+            border-bottom-color: currentColor;
         }
 
         .card-content {
@@ -161,6 +187,15 @@
 <script>
     [
         {
+            title: "Structured Noise to Reduce Deep BSDE Training Loss",
+            wip: false,
+            description: `Research project focusing on reducing training loss for the Deep BSDE method under supervision of <a href="https://people.bath.ac.uk/jmf68/" target="_blank">Dr James Foster</a>, jointly funded by the LMS and the University of Bath
+                  <br><br><a href="https://github.com/nathanevaans/LMS-URB-Project/blob/main/Report.pdf" target="_blank">Report</a> | <a href="https://github.com/nathanevaans/LMS-URB-Project" target="_blank">Repo</a>`,
+            link: null,
+            tags: ["Maths", "Research"],
+            date: 2025
+        },
+        {
             title: "Sample path visualiser",
             wip: false,
             description: "Accompanies my reserch on the Deep BSDE method, this lets you see how our new sample paths compare to Brownian motion",
@@ -168,7 +203,7 @@
             tags: ["Maths", "Visualisation"],
             date: 2025
         },
-         {
+        {
             title: "Disease Spread on a Graph",
             wip: false,
             description: "Simulation of disease spread with real time SIR curves",
@@ -188,7 +223,7 @@
             title: "Chat Room",
             wip: true,
             description: "Next.js + PartyKit version of my previous project minus the vulnerabilities",
-            link: "",
+            link: null,
             tags: ["Next.js", "PartyKit"],
             date: 2024
         },
@@ -196,7 +231,7 @@
             title: "Chat Room",
             wip: true,
             description: "WebSocket server written in golang, seeing what I could make in a new language",
-            link: "",
+            link: null,
             tags: ["Golang"],
             date: 2024
         },
@@ -317,7 +352,11 @@
 
         const card = document.createElement("div")
         card.classList.add("card")
-        card.onclick = () => window.location.href = info.link
+
+        if (info.link !== null) {
+            card.classList.add("clickable")
+            card.onclick = () => window.location.href = info.link
+        }
 
         if (info.wip) {
             const wipMarker = document.createElement("div")
@@ -336,7 +375,8 @@
 
         const description = document.createElement("div")
         description.classList.add("card-description")
-        description.textContent = info.description
+        // description.textContent = info.description
+        description.innerHTML = info.description
 
         cardContainer.append(title, description)
 
