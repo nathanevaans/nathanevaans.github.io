@@ -8,7 +8,147 @@
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
-            padding: 20px 10px 20px 10px;
+            padding: 0;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: white;
+            padding: 40px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 16px;
+            background-color: #e0e0e0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ensures the image fills the div without distortion */
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h1 {
+            margin: 0 0 10px 0;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .about-content .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+
+        .about-content a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .about-content a:hover {
+            color: #005bb5;
+            border-bottom-color: currentColor;
+        }
+
+        .about-content a:visited {
+            color: #663399;
+            border-bottom-color: currentColor;
+        }
+
+        .about-content a:visited:hover {
+            color: #522d73;
+            border-bottom-color: currentColor;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky; /* Corrected */
+            top: 0; /* Stick to the top */
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            padding: 20px 0;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #0073e6;
+            border-bottom-color: #0073e6;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 40px 20px;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 30px;
         }
 
         #container {
@@ -38,6 +178,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .card.hidden {
+            display: none;
+        }
+
         .wip-marker {
             position: absolute;
             top: 0;
@@ -63,7 +207,7 @@
         }
 
         .card-description a {
-            color: #0073e6; /* default blue */
+            color: #0073e6;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s, border-bottom 0.2s;
@@ -71,17 +215,17 @@
         }
 
         .card-description a:hover {
-            color: #005bb5; /* darker blue on hover */
-            border-bottom-color: currentColor; /* underline matches text color */
+            color: #005bb5;
+            border-bottom-color: currentColor;
         }
 
         .card-description a:visited {
-            color: #663399; /* purple for visited */
-            border-bottom-color: currentColor; /* underline matches text color */
+            color: #663399;
+            border-bottom-color: currentColor;
         }
 
         .card-description a:visited:hover {
-            color: #522d73; /* darker purple when visited+hover */
+            color: #522d73;
             border-bottom-color: currentColor;
         }
 
@@ -122,58 +266,92 @@
         }
 
         .card[data-year="2021"] .card-date {
-            background-color: #E7FFD4; /* Light Green */
-            color: #000; /* Black text color */
+            background-color: #E7FFD4;
+            color: #000;
         }
 
         .card[data-year="2022"] .card-date {
-            background-color: #FBE8FF; /* Light Purple */
-            color: #000; /* Black text color */
+            background-color: #FBE8FF;
+            color: #000;
         }
 
         .card[data-year="2023"] .card-date {
-            background-color: #E7F6FF; /* Light Blue */
-            color: #000; /* Black text color */
+            background-color: #E7F6FF;
+            color: #000;
         }
 
         .card[data-year="2024"] .card-date {
-            background-color: #FFEBD9; /* Light Orange */
-            color: #000; /* Black text color */
+            background-color: #FFEBD9;
+            color: #000;
         }
 
         .card[data-year="2025"] .card-date {
             background-color: #FFF0B3;
-            color: #000; /* Black text color */
+            color: #000;
         }
 
         .card[data-year="2026"] .card-date {
             background-color: #FFB399;
-            color: #000; /* Black text color */
+            color: #000;
         }
 
         .card[data-year="2027"] .card-date {
             background-color: #D9E3E6;
-            color: #000; /* Black text color */
+            color: #000;
         }
 
         .card[data-year="2028"] .card-date {
             background-color: #FFB3C1;
-            color: #000; /* Black text color */
+            color: #000;
         }
 
         .card[data-year="2029"] .card-date {
             background-color: #FFB3E6;
-            color: #000; /* Black text color */
+            color: #000;
         }
 
-        @media only screen and (min-width: 760px) {
+        .no-results {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            padding: 40px;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media only screen and (min-width: 780px) {
             .card {
                 width: 300px;
                 margin-bottom: 20px;
             }
         }
 
-        @media only screen and (max-width: 760px) {
+        @media only screen and (max-width: 780px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .about-content h1 {
+                font-size: 28px;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
             .card {
                 width: 100%;
                 margin-bottom: 10px;
@@ -182,11 +360,58 @@
     </style>
 </head>
 <body>
-<div id="container"></div>
+<!-- Header Section -->
+<div class="header">
+    <div class="header-content">
+        <div class="profile-image">
+            <img src="IMG_0779 2.JPG" alt="Profile Image">
+        </div>
+        <div class="about-content">
+            <h1>Nathan Evans</h1>
+            <div class="subtitle">Mathematics Student | Developer | Tutor</div>
+            <p>
+                I am currently pursuing an <b>MSc in Applied Mathematics at Imperial College London</b> and hold a <b>first
+                class BSc in Mathematical Sciences from the University of Bath</b>. My research interests include
+                analysis, probability, numerical methods, and machine learning. During my studies, I completed
+                internships at <b>BlackRock</b> and <b>Dojo</b>, gaining experience across finance, software engineering,
+                and machine learning. Additionally, I was awarded the <b>LMS Undergraduate Research Bursary</b> for a
+                project on the Deep BSDE method, funded jointly by the LMS and the University of Bath.
+            </p>
+            <br>
+            <p>
+                <a href="www.linkedin.com/in/nathanevaans" target="_blank">LinkedIn</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-container">
+    <div class="nav">
+        <div class="nav-links">
+            <a href="#" class="nav-link active" data-filter="all">All Projects</a>
+            <a href="#" class="nav-link" data-filter="Research">Research</a>
+            <a href="#" class="nav-link" data-filter="Visualisation">Visualizations</a>
+            <a href="#" class="nav-link" data-filter="AI">AI</a>
+            <a href="#" class="nav-link" data-filter="Game">Games</a>
+        </div>
+    </div>
+</div>
+
+<!-- Projects Section -->
+<div class="projects-section">
+    <div class="projects-container">
+        <div id="container"></div>
+        <div class="no-results" id="noResults">
+            No projects found matching your criteria.
+        </div>
+    </div>
+</div>
 
 <script>
-    [
-         {
+    const projects = [
+        {
             title: "2x2 Matrix Transformation Visualiser",
             wip: true,
             description: "Made to help my A-Level students build intuition on how matrices map points in the plane",
@@ -363,64 +588,116 @@
             tags: ["Algorithms", "Maths"],
             date: 2021
         }
-    ].forEach(info => {
-        const container = document.getElementById("container")
+    ]
 
-        const card = document.createElement("div")
-        card.classList.add("card")
+    let currentNavFilter = 'all';
 
-        if (info.link !== null) {
-            card.classList.add("clickable")
-            card.onclick = () => window.location.href = info.link
-        }
+    // Initialize the page
+    function init() {
+        renderProjects();
+        setupEventListeners();
+    }
 
-        if (info.wip) {
-            const wipMarker = document.createElement("div")
-            wipMarker.classList.add("wip-marker")
-            wipMarker.textContent = "WIP"
+    // Filter projects based on nav
+    function filterProjects() {
+        const cards = document.querySelectorAll('.card');
+        let visibleCount = 0;
 
-            card.append(wipMarker)
-        }
+        cards.forEach((card, index) => {
+            const project = projects[index];
+            let shouldShow = true;
 
-        const cardContainer = document.createElement("div")
-        cardContainer.classList.add("card-content")
+            if (currentNavFilter !== 'all' && !project.tags.includes(currentNavFilter)) {
+                shouldShow = false;
+            }
 
-        const title = document.createElement("div")
-        title.classList.add("card-title")
-        title.textContent = info.title
+            if (shouldShow) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
 
-        const description = document.createElement("div")
-        description.classList.add("card-description")
-        // description.textContent = info.description
-        description.innerHTML = info.description
+        const noResults = document.getElementById('noResults');
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
 
-        cardContainer.append(title, description)
 
-        const cardFooter = document.createElement("div")
-        cardFooter.classList.add("card-footer")
+    // Render all projects
+    function renderProjects() {
+        const container = document.getElementById('container');
+        container.innerHTML = '';
 
-        const cardTags = document.createElement("div")
-        cardTags.classList.add("card-tags")
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.classList.add('card');
 
-        info.tags.forEach(tag => {
-            const tagDiv = document.createElement("div")
-            tagDiv.classList.add("card-tag")
-            tagDiv.textContent = tag
+            if (project.link !== null) {
+                card.classList.add('clickable');
+                card.onclick = () => window.open(project.link, '_blank');
+            }
 
-            cardTags.append(tagDiv)
-        })
+            if (project.wip) {
+                const wipMarker = document.createElement('div');
+                wipMarker.classList.add('wip-marker');
+                wipMarker.textContent = 'WIP';
+                card.appendChild(wipMarker);
+            }
 
-        const date = document.createElement("div")
-        date.classList.add("card-date")
-        date.textContent = info.date
+            const cardContainer = document.createElement('div');
+            cardContainer.classList.add('card-content');
 
-        cardFooter.append(cardTags, date)
+            const title = document.createElement('div');
+            title.classList.add('card-title');
+            title.textContent = project.title;
 
-        card.dataset.year = info.date;
-        card.append(cardContainer, cardFooter)
+            const description = document.createElement('div');
+            description.classList.add('card-description');
+            description.innerHTML = project.description;
 
-        container.append(card)
-    })
+            cardContainer.append(title, description);
+
+            const cardFooter = document.createElement('div');
+            cardFooter.classList.add('card-footer');
+
+            const cardTags = document.createElement('div');
+            cardTags.classList.add('card-tags');
+
+            project.tags.forEach(tag => {
+                const tagDiv = document.createElement('div');
+                tagDiv.classList.add('card-tag');
+                tagDiv.textContent = tag;
+                cardTags.appendChild(tagDiv);
+            });
+
+            const date = document.createElement('div');
+            date.classList.add('card-date');
+            date.textContent = project.date;
+
+            cardFooter.append(cardTags, date);
+
+            card.dataset.year = project.date;
+            card.append(cardContainer, cardFooter);
+
+            container.appendChild(card);
+        });
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentNavFilter = link.dataset.filter;
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                filterProjects();
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
 </html>
