@@ -358,6 +358,25 @@
             }
         }
     </style>
+
+
+<!--  LATEX  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+    <script>
+        function renderLatex(container = document.body) {
+            renderMathInElement(container, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+        }
+    </script>
 </head>
 <body>
 <!-- Header Section -->
@@ -413,7 +432,7 @@
         {
             title: "A Note on Integration of Banach-Valued Functions and Applications to Parabolic PDEs",
             wip: true,
-            description: `An expository paper covering the rigorous ground work to define and work with Bochner integrals. Building up to the Fundametal Theorem of Calculus for W^{1, p}(0, T; X).
+            description: `An expository paper covering the rigorous ground work to define and work with Bochner integrals. Building up to the Fundametal Theorem of Calculus for elements of $W^{1, p}(0, T; X)$.
                     <br><br><a href="Bochner_Integral_Guide.pdf" target="_blank">Report</a>`,
             link: null,
             tags: ["Maths", "Research"],
@@ -690,6 +709,8 @@
 
             container.appendChild(card);
         });
+
+        renderLatex(container);
     }
 
     // Setup event listeners
