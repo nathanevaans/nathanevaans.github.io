@@ -719,6 +719,7 @@ Machine Learning' written by Thomas Cass and Cristopher Salvi.
             const description = document.createElement('div');
             description.classList.add('card-description');
             description.innerHTML = project.description;
+            description.onclick = (e) => e.stopPropagation();
 
             cardContainer.append(title, description);
 
